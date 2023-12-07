@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import VideoTtile from "./VideoTtile";
+import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
@@ -10,7 +10,7 @@ const MainContainer = () => {
   const { original_title, overview, id } = mainMovie;
   return (
     <div className="w-screen aspect-video">
-      <VideoTtile title={original_title} overview={overview} />
+      <VideoTitle title={original_title} overview={overview} />
       <VideoBackground movieId={id} />
     </div>
   );
