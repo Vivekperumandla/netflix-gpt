@@ -28,8 +28,15 @@
 - Update store with traier video data
 - Embedded the youtube video and make it auto play and mute
 - Tailwind css classes to make main container look awesome
--
--
+- Build Secondary Component
+- Built Movie Card
+- Built Movie List
+- Found TMDB Image CDN URL
+- Made the browse page amazing with Tailwing CSS
+- usePopularMovies Hooks
+- GPT Search Page
+- GPT Search Bar
+- Multi-Language feature in our app in GPT Search Page
 
 # Features
 

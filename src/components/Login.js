@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { USER_AVATAR } from "../utils/constants";
+import { Background_URL, USER_AVATAR } from "../utils/constants";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
@@ -96,12 +96,8 @@ const Login = () => {
   return (
     <div className=" w-screen">
       <Header />
-      <div className="absolute">
-        <img
-          className="w-screen"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/f85718e8-fc6d-4954-bca0-f5eaf78e0842/ea44b42b-ba19-4f35-ad27-45090e34a897/IN-en-20230918-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="Background"
-        />
+      <div className="absolute -mt-20">
+        <img className="w-screen" src={Background_URL} alt="Background" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}

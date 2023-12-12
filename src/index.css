@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Enable scrollbar styling for WebKit (Chrome, Safari, etc.) */
+/* Please note that this method might not work in all browsers */
+
+/* Define scrollbar width */
+.custom-scrollbar-x::-webkit-scrollbar {
+  height: 5px; /* Adjust the height as needed */
+}
+
+/* Track */
+.custom-scrollbar-x::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.custom-scrollbar-x::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+.custom-scrollbar-x::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
