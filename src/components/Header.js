@@ -6,6 +6,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGPTSearchView } from "../utils/gptSlice";
+import { addGptMovieResult } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
@@ -55,6 +56,10 @@ const Header = () => {
   const handleGptSearchClick = () => {
     //Toggle GPT search
     dispatch(toggleGPTSearchView());
+
+    if (showGptSearch) {
+      dispatch(addGptMovieResult({ movieNames: null, movieResults: null }));
+    }
   };
 
   const handleLanguageChange = (event) => {
@@ -62,19 +67,27 @@ const Header = () => {
   };
   return (
     <>
-      <div className="relative w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-        <img className="w-44" src={LOGO} alt="logo" />
+      <div className="relative w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+        <img
+          className="w-44 mx-auto md:mx-0 mb-7 md:mb-0 md:pb-0"
+          src={LOGO}
+          alt="logo"
+        />
         {user && (
-          <div className="flex items-center -mt-[23px]">
+          <div className="flex flex-col md:flex-row items-center -mt-[23px]">
             <div className="flex ">
               {showGptSearch && (
                 <>
                   <select
                     onChange={handleLanguageChange}
-                    className="bg-transparent text-white"
+                    className="bg-transparent text-white "
                   >
                     {SUPPORTED_LANGUAGES.map((lang, index) => (
-                      <option value={lang.identifier} key={index}>
+                      <option
+                        className="text-white bg-black"
+                        value={lang.identifier}
+                        key={index}
+                      >
                         {lang.name}
                       </option>
                     ))}
@@ -83,7 +96,7 @@ const Header = () => {
               )}
 
               <button
-                className="text-white font-bold text-xs px-4 bg-purple-700 mx-3 rounded-md"
+                className="text-white font-bold md:text-xs px-4 bg-purple-700 mx-3 rounded-md"
                 onClick={handleGptSearchClick}
               >
                 {showGptSearch ? "Home Page" : "GPT Search"}
@@ -96,7 +109,7 @@ const Header = () => {
 
             <button
               onClick={handleSignOut}
-              className="mx-2 text-xs bg-gray-500 text-white font-bold p-2 px-6 bg-opacity-40 rounded-md hover:bg-opacity-80"
+              className="mx-2 mt-4 md:mt-0 text-xs bg-gray-500 text-white font-bold p-2 px-6 bg-opacity-40 rounded-md hover:bg-opacity-80"
             >
               Sign Out
             </button>

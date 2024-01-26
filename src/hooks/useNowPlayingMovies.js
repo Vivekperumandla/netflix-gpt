@@ -2,8 +2,12 @@ import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
 import { addNowPlayingMovies } from "../utils/moviesSlice";
+import { useSelector } from "react-redux";
 
 const useNowPlayingMovies = () => {
+  const nowPlayingMovies = useSelector(
+    (store) => store.movies.nowPlayingMovies
+  );
   const dispatch = useDispatch();
 
   const getPopularMovies = async () => {
@@ -16,7 +20,7 @@ const useNowPlayingMovies = () => {
   };
 
   useEffect(() => {
-    getPopularMovies();
+    !nowPlayingMovies && getPopularMovies();
   }, []);
 };
 
