@@ -63,3 +63,5 @@
 - NetflixGPT
   - Search Bar
   - Movie Suggestions
+
+🌐 Project Live Link : https://vivek-netflixgpt.netlify.app/ 🚀
